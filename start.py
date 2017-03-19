@@ -48,8 +48,10 @@ if __name__ == '__main__':
 
 	if not cursor.rowcount:
 		cursor.execute(add_site, (pid, sys.argv[1]))
-
 		call(["./start.sh", domain, domain_hash])
+		print("New starter scripts were generated for " + domain)
+	else:
+		print("Nothing new was generated")
 
 	cnx.commit()
 
